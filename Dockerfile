@@ -5,8 +5,8 @@ COPY . /app
 WORKDIR /app
 
 RUN apk upgrade --update \
-    && apk add bash git ca-certificates \
-    && npm install -g bower patch-package\
+    && apk add bash git ca-certificates g++ make python \
+    && npm install -g bower patch-package@6.5.1 \
     && npm --unsafe-perm --production install \
     && apk del git \
     && rm -rf /var/cache/apk/* \
